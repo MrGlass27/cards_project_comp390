@@ -37,3 +37,19 @@ class Deck:
                 new_rank = Rank(rank)
                 new_card = Card(new_suite, new_rank)
                 self.add(new_card)
+
+    def print(self):
+        for card in self.card:
+            print(card)
+
+    def shuffle(self):
+        random.shuffle(self.card)
+
+    def draw(self):
+        drawn_card = self.card[0]
+        self.card = self.card[1:]
+        return drawn_card
+
+deck = Deck()
+deck.shuffle()
+deck.print()
