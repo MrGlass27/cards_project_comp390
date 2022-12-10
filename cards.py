@@ -2,22 +2,22 @@ import random
 
 
 class Rank:
-    rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
+    rank = None
 
     def __init__(self, rank):
         self.rank = rank
 
     def __str__(self):
-        return 'rank{}'.format(self.rank)
+        return '{}'.format(self.rank)
 
 class Suite:
-    suite = ["Clubs", "Hearts", "Spades", "Diamonds"]
+    suite = None
 
     def __init__(self, suite):
         self.suite = suite
 
     def __str__(self):
-        return 'suite{}'.format(self.suite)
+        return '{}'.format(self.suite)
 
 class Card:
     suite = None
@@ -28,16 +28,18 @@ class Card:
         self.rank = rank
 
     def __str__(self):
-        return 'suite{}, rank{}'.format(self.suite, self.rank)
+        return '{}, {}'.format(self.suite, self.rank)
 
 class Deck:
     card = []
 
+
     def __init__(self):
         self.card = []
-
-        for suite in range(3):
-            for rank in range(12):
+        suites = ['Spades', 'Clubs', 'Hearts', 'Diamonds']
+        ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+        for suite in suites:
+            for rank in ranks:
                 new_suite = Suite(suite)
                 new_rank = Rank(rank)
                 new_card = Card(new_suite, new_rank)
